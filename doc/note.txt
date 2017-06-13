@@ -1,0 +1,1 @@
+ionic and cordova as app , nodejs express as service and socket.io to message pipeline , mongodb and redis as memory cache
