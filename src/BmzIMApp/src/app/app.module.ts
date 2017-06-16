@@ -7,6 +7,7 @@ import { AboutPage } from '../pages/about/about';
 import { SlidesPage } from '../pages/slides/slides';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
+import { ChatFormPage } from '../pages/chatForm/chatForm';
 import { TabsPage } from '../pages/tabs/tabs';
 
 
@@ -20,6 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SlidesPage,
     ContactPage,
     HomePage,
+    ChatFormPage,
     TabsPage
   ],
   imports: [
@@ -33,6 +35,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SlidesPage,
     ContactPage,
     HomePage,
+    ChatFormPage,
     TabsPage
   ],
   providers: [

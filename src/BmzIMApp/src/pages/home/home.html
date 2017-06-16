@@ -18,10 +18,14 @@
 </ion-header>
 
 <ion-content class="cards-bg">
-  <ion-card>
-
+<ion-list>
+    <button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-start>
+      <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}" item-start></ion-icon>
+      {{ item.title }}
+    </button>
+  </ion-list>
+  <ion-card (click)="openModal({charNum: 0})">
     <img src="assets/img/nin-live.png"/>
-
     <ion-card-content>
       <ion-card-title>
         Nine Inch Nails Live
@@ -30,7 +34,6 @@
         The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
       </p>
     </ion-card-content>
-
     <ion-row no-padding>
       <ion-col>
         <button ion-button clear small color="danger" icon-left>
@@ -51,15 +54,12 @@
         </button>
       </ion-col>
     </ion-row>
-
   </ion-card>
 
-  <ion-card>
-
+  <ion-card (click)="openModal({charNum: 1})">
     <div>
       <img src="assets/img/badu-live.png"/>
     </div>
-
     <ion-card-content>
       <ion-card-title>
         Erykah Badu
@@ -68,7 +68,6 @@
       American singer-songwriter, record producer, activist, and actress, Badu's style is a prime example of neo-soul.
       </p>
     </ion-card-content>
-
     <ion-row no-padding>
       <ion-col>
         <button ion-button clear small color="danger" icon-left>
@@ -89,15 +88,12 @@
         </button>
       </ion-col>
     </ion-row>
-
   </ion-card>
 
-  <ion-card>
-
+  <ion-card (click)="openModal({charNum: 2})">
     <div>
       <img src="assets/img/queen-live.png"/>
     </div>
-
     <ion-card-content>
       <ion-card-title>
         Queen
@@ -106,7 +102,6 @@
         The British rock band formed in London in 1970, and is considered one of the biggest stadium rock bands in the world.
       </p>
     </ion-card-content>
-
     <ion-row no-padding>
       <ion-col>
         <button ion-button clear small color="danger" icon-left>
@@ -129,13 +124,10 @@
     </ion-row>
 
   </ion-card>
-
   <ion-card>
-
     <div>
       <img src="assets/img/rundmc-live.png"/>
     </div>
-
     <ion-card-content>
       <ion-card-title>
         Run-D.M.C.
@@ -144,7 +136,6 @@
         The American hip hop group widely acknowledged as one of the most influential acts in the history of hip hop.
       </p>
     </ion-card-content>
-
     <ion-row no-padding>
       <ion-col>
         <button ion-button clear small color="danger" icon-left>
@@ -165,6 +156,5 @@
         </button>
       </ion-col>
     </ion-row>
-
   </ion-card>
 </ion-content>
