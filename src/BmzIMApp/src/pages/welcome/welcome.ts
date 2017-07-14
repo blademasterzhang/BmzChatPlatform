@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import {NavController} from 'ionic-angular';
-import {HomePage} from '../home/home'; 
+import { NavController } from 'ionic-angular';
+import { LoginPage } from '../login/login'; 
 
 @Component({
-  selector: 'page-slides',
-  templateUrl: 'slides.html'
+  selector: 'page-welcome',
+  templateUrl: 'welcome.html'
 })
-export class SlidesPage {
+export class WelcomePage {
   slides = [
     {
       title: "Welcome to the Docs!",
@@ -28,7 +28,7 @@ export class SlidesPage {
 constructor(public navCtr: NavController){ 
     }
     
-  goToHome(){
-        this.navCtr.setRoot(HomePage);
+  goToLogin(){
+        this.navCtr.setRoot(LoginPage);
     }
 }

@@ -6,7 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
-import { SlidesPage } from '../pages/slides/slides';
+import { WelcomePage } from '../pages/welcome/welcome';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,14 +17,23 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public storage: Storage) {
 
-    this.storage.get('121firstIn').then((result) => { 
+    this.storage.get('firstIn').then((firstResult) => { 
              
-      if(result){  
-        this.rootPage = TabsPage; 
+      if(firstResult){  
+
+        this.storage.get('loginIn').then((loginResult) => { 
+          if(loginResult){  
+            this.rootPage = TabsPage; 
+          } 
+          else{
+            this.rootPage = LoginPage;
+          }
+        }); 
+        
       } 
       else{
-        this.storage.set('121firstIn', true);
-        this.rootPage = SlidesPage;
+        this.storage.set('firstIn', true);
+        this.rootPage = WelcomePage;
       }
     }); 
 

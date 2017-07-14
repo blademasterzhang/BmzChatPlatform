@@ -7,11 +7,12 @@ import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http'
 
 import { AboutPage } from '../pages/about/about';
-import { SlidesPage } from '../pages/slides/slides';
+import { WelcomePage } from '../pages/welcome/welcome';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { ChatFormPage } from '../pages/chatForm/chatForm';
+import { ChatPage } from '../pages/chat/chat';
 import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
 import { MovieService } from '../services/movie-service';
 import { UserService } from '../services/user-service';
 
@@ -23,11 +24,12 @@ import { IonicStorageModule } from '@ionic/storage';
   declarations: [
     MyApp,
     AboutPage,
-    SlidesPage,
+    WelcomePage,
     ContactPage,
     HomePage,
-    ChatFormPage,
-    TabsPage
+    ChatPage,
+    TabsPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -39,11 +41,12 @@ import { IonicStorageModule } from '@ionic/storage';
   entryComponents: [
     MyApp,
     AboutPage,
-    SlidesPage,
+    WelcomePage,
     ContactPage,
     HomePage,
-    ChatFormPage,
-    TabsPage
+    ChatPage,
+    TabsPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
