@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
+import * as io from 'socket.io-client';
 
 @Component({
   selector: 'page-chat',
@@ -8,12 +9,27 @@ import { ModalController, Platform, NavParams, ViewController } from 'ionic-angu
 })
 export class ChatFormPage {
   character;
-
+  socket:any
+  chat_input:string;
+  chats = [];
+  prova=[];
   constructor(
     public platform: Platform,
     public params: NavParams,
     public viewCtrl: ViewController
   ) {
+      this.socket = io('http://localhost:3000');
+
+      this.socket.on('message', (msg) => {
+         console.log("message", msg);
+         this.chats.push(msg);
+       });
+
+      this.socket.on('prova', (msgProva) => {
+           console.log("msgProva", msgProva);
+           this.prova.push(msgProva);
+       });
+
     var characters = [
       {
         name: 'Gollum',
@@ -48,6 +64,13 @@ export class ChatFormPage {
     ];
     this.character = characters[this.params.get('charNum')];
   }
+
+  send(msg) {
+            if(msg != ''){
+                this.socket.emit('message', msg);
+            }
+            this.chat_input = '';
+        }
 
   dismiss() {
     this.viewCtrl.dismiss();

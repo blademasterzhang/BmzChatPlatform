@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import {NavController} from 'ionic-angular';
+import {HomePage} from '../home/home'; 
 
 @Component({
   selector: 'page-slides',
@@ -23,4 +24,11 @@ export class SlidesPage {
       image: "assets/img/ica-slidebox-img-3.png",
     }
   ];
+
+constructor(public navCtr: NavController){ 
+    }
+    
+  goToHome(){
+        this.navCtr.setRoot(HomePage);
+    }
 }
