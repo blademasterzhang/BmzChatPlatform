@@ -1,31 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Description
-    </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
-        <span ion-text color="primary" showWhen="ios">Cancel</span>
-        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+        <ion-icon name="md-close"></ion-icon>
       </button>
     </ion-buttons>
+    <ion-title>
+      {{userInfos[1].realName}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button>
+        <ion-icon name="person"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid>
     <ion-row *ngFor="let item of chats">
-        <ion-col col-3>
-          <ion-thumbnail item-start *ngIf="item.userCode!= myInfo.userCode">
-            <img src="{{item.avator}}">
+        <ion-col col-2>
+          <ion-thumbnail item-start *ngIf="item.userCode!= userInfos[0].userCode">
+            <img src="{{userInfos[1].avator}}">
           </ion-thumbnail>
         </ion-col>
-        <ion-col col-6>
-          <p>{{item.message}}</p>
+        <ion-col col-8>
+          <span class="chat-message" *ngIf="item.userCode!= userInfos[0].userCode">{{item.message}}</span>
+          <span class="chat-message right-chat-message" *ngIf="item.userCode== userInfos[0].userCode">{{item.message}}</span>
         </ion-col>
-        <ion-col col-3>
-          <ion-thumbnail item-start *ngIf="item.userCode== myInfo.userCode">
-            <img src="{{item.avator}}">
+        <ion-col col-2>
+          <ion-thumbnail item-start *ngIf="item.userCode== userInfos[0].userCode">
+            <img src="{{userInfos[0].avator}}">
           </ion-thumbnail>
         </ion-col>
     </ion-row>
