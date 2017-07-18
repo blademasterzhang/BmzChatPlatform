@@ -34,3 +34,9 @@ page-home {
 .float-right{
   float: right;
 }
+
+ion-card img {
+    height: 170pt;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}

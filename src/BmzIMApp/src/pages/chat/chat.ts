@@ -8,12 +8,12 @@ import { NavParams, ViewController } from 'ionic-angular';
 export class ChatPage {
   userInfos = [{
                 "userCode":"123456",
-                "realName":"傻强",
-                "avator":"http://img4q.duitang.com/uploads/item/201507/02/20150702000349_aJSt5.jpeg"
+                "realName":"铠",
+                "avator":"http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193.jpg"
               },{
                 "userCode":"234567",
-                "realName":"韩琛",
-                "avator":"http://img5.duitang.com/uploads/item/201508/20/20150820223845_LvRz4.jpeg"
+                "realName":"王昭君",
+                "avator":"http://game.gtimg.cn/images/yxzj/img201606/heroimg/152/152.jpg"
               }];
 
   chats=[{"userCode":"123456",
