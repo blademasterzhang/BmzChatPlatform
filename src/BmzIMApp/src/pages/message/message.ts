@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-chat',
-  templateUrl: 'chat.html'
+  selector: 'page-message',
+  templateUrl: 'message.html'
 })
 
-export class ChatPage {
+export class MessagePage {
   userInfos = [{
                 "userCode":"123456",
                 "realName":"铠",
@@ -41,7 +40,7 @@ export class ChatPage {
 
   chat_input:string;
 
-  constructor( public params: NavParams) {
+  constructor( ) {
 
   }
 

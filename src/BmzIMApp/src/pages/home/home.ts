@@ -1,8 +1,8 @@
 import { Component} from '@angular/core';
 import { App   } from 'ionic-angular';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { ChatPage } from '../chat/chat';
+import { DetailPage } from '../detail/detail';
 import { UserService } from '../../services/user-service';
 
 @Component({
@@ -27,6 +27,6 @@ export class HomePage {
 
 
   openModal(characterNum) {
-    this.app.getRootNav().push(ChatPage, characterNum)
+    this.app.getRootNav().push(DetailPage, characterNum)
   }
 }

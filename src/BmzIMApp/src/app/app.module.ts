@@ -1,5 +1,3 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -11,10 +9,11 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { ChatPage } from '../pages/chat/chat';
+import { MessagePage } from '../pages/message/message';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
-import { MovieService } from '../services/movie-service';
-import { UserService } from '../services/user-service';
+import { DynamicPage } from '../pages/dynamic/dynamic';
+import { DetailPage } from '../pages/detail/detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,8 +27,11 @@ import { IonicStorageModule } from '@ionic/storage';
     ContactPage,
     HomePage,
     ChatPage,
+    MessagePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    DynamicPage,
+    DetailPage
   ],
   imports: [
     BrowserModule,
@@ -45,8 +47,11 @@ import { IonicStorageModule } from '@ionic/storage';
     ContactPage,
     HomePage,
     ChatPage,
+    MessagePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    DynamicPage,
+    DetailPage
   ],
   providers: [
     StatusBar,

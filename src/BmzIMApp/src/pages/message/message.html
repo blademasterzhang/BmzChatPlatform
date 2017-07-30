@@ -1,13 +1,12 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      {{userInfos[1].realName}}
+      王者荣耀
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid>
     <ion-row *ngFor="let item of chats">
         <ion-col col-2>
           <ion-thumbnail item-start *ngIf="item.userCode!= userInfos[0].userCode">
@@ -24,7 +23,6 @@
           </ion-thumbnail>
         </ion-col>
     </ion-row>
-  </ion-grid>
 </ion-content>
 
 <ion-footer>
