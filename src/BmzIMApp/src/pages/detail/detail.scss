@@ -24,7 +24,7 @@
 }
 
 .border-1-solid-gray {
-    width: 100%;
+    width:100%;
     border-bottom: 1px solid gray;
 }
 .grid{
@@ -47,4 +47,11 @@
     line-height: 100px;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
+}
+
+.p-desc{
+	    padding: 16px;
+    background: #fff;
+    line-height: 20px;
+    margin: 0px;
 }

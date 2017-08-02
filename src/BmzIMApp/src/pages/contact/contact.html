@@ -7,129 +7,114 @@
 </ion-header>
 
 <ion-content  class="list-avatar-page">
+<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
 
-    <ion-list-header>Today</ion-list-header>
-
+    <ion-item (click)="openModal({charNum: 0})">
+      <ion-avatar item-start>
+        <img src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/152/152.jpg">
+      </ion-avatar>
+      <h2>王昭君</h2>
+      <p>法术攻击的叠加，提高昭君带线能力，前期较有优势，达到四级时就可以带走敌方中单，或者边路支援打野抓人。CD的缩减主要针对后期，可以使昭君技能频繁使用，进行消耗。吸血效果可以很好的提升线上续航能力。</p>
+      <ion-note item-end>早上10:03</ion-note>
+    </ion-item>
+    
     <ion-item>
       <ion-avatar item-start>
-        <img src="assets/img/avatar-ts-woody.png">
+        <img src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191.jpg">
       </ion-avatar>
-      <h2>Woody</h2>
-      <p>This town ain't big enough for the two of us!</p>
-      <ion-note item-end>3:43 pm</ion-note>
+      <h2>大乔</h2>
+      <p>大乔是辅助，四个技能两个控制伤害两个传送技能，大乔除了2技能外均有较高的法术伤害及可观的法术加成。大乔的四个技能cd都比较长，使用怜悯可以对冷却进行一定的缩减加成，梦魇和轮回是相对收益比较高的法术铭文。</p>
+      <ion-note item-end>下午03:43</ion-note>
     </ion-item>
 
     <ion-item>
       <ion-avatar item-start>
-        <img src="assets/img/avatar-ts-buzz.png">
+        <img src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190.jpg">
       </ion-avatar>
-      <h2>Buzz Lightyear</h2>
-      <p>My eyeballs could have been sucked from their sockets!</p>
-      <ion-note item-end>1:12 pm</ion-note>
+      <h2>诸葛亮</h2>
+      <p>诸葛亮作为强力法师，红色梦魇提升法术攻击、法术穿透，保证打出强力伤害。绿色怜悯提升技能冷却，保证可以多放技能、多打出被动，对敌人造成高额伤害。蓝色轮回提升法术吸血能力，在对战中保证生存能力以及续航能力。</p>
+      <ion-note item-end>下午01:12</ion-note>
     </ion-item>
 
     <ion-item>
       <ion-avatar item-start>
-        <img src="assets/img/avatar-ts-jessie.png">
+        <img src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/127/127.jpg">
       </ion-avatar>
-      <h2>Jessie</h2>
-      <p>Well aren't you just the sweetest space toy I ever did meet!</p>
-      <ion-note item-end>10:03 am</ion-note>
+      <h2>甄姬</h2>
+      <p>这套铭文提供法术强度、法术穿透、冷却减缩，以及法术吸血。法术穿透和法术强度增加甄姬的输出能力，法术吸血让甄姬有一定的续航能力，冷却减缩减少技能CD，让甄姬能更快得打出技能被动冰冻敌方并造成伤害。</p>
+      <ion-note item-end>下午05:47</ion-note>
+    </ion-item>
+<ion-item>
+      <ion-avatar item-start>
+        <img src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191.jpg">
+      </ion-avatar>
+      <h2>大乔</h2>
+      <p>大乔是辅助，四个技能两个控制伤害两个传送技能，大乔除了2技能外均有较高的法术伤害及可观的法术加成。大乔的四个技能cd都比较长，使用怜悯可以对冷却进行一定的缩减加成，梦魇和轮回是相对收益比较高的法术铭文。</p>
+      <ion-note item-end>下午03:43</ion-note>
     </ion-item>
 
     <ion-item>
       <ion-avatar item-start>
-        <img src="assets/img/avatar-ts-potatohead.png">
+        <img src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190.jpg">
       </ion-avatar>
-      <h2>Mr. Potato Head</h2>
-      <p>You're not turning me into a Mashed Potato.</p>
-      <ion-note item-end>5:47 am</ion-note>
+      <h2>诸葛亮</h2>
+      <p>诸葛亮作为强力法师，红色梦魇提升法术攻击、法术穿透，保证打出强力伤害。绿色怜悯提升技能冷却，保证可以多放技能、多打出被动，对敌人造成高额伤害。蓝色轮回提升法术吸血能力，在对战中保证生存能力以及续航能力。</p>
+      <ion-note item-end>下午01:12</ion-note>
     </ion-item>
 
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/152/152.jpg">
+      </ion-avatar>
+      <h2>王昭君</h2>
+      <p>法术攻击的叠加，提高昭君带线能力，前期较有优势，达到四级时就可以带走敌方中单，或者边路支援打野抓人。CD的缩减主要针对后期，可以使昭君技能频繁使用，进行消耗。吸血效果可以很好的提升线上续航能力。</p>
+      <ion-note item-end>早上10:03</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/127/127.jpg">
+      </ion-avatar>
+      <h2>甄姬</h2>
+      <p>这套铭文提供法术强度、法术穿透、冷却减缩，以及法术吸血。法术穿透和法术强度增加甄姬的输出能力，法术吸血让甄姬有一定的续航能力，冷却减缩减少技能CD，让甄姬能更快得打出技能被动冰冻敌方并造成伤害。</p>
+      <ion-note item-end>下午05:47</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191.jpg">
+      </ion-avatar>
+      <h2>大乔</h2>
+      <p>大乔是辅助，四个技能两个控制伤害两个传送技能，大乔除了2技能外均有较高的法术伤害及可观的法术加成。大乔的四个技能cd都比较长，使用怜悯可以对冷却进行一定的缩减加成，梦魇和轮回是相对收益比较高的法术铭文。</p>
+      <ion-note item-end>下午03:43</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190.jpg">
+      </ion-avatar>
+      <h2>诸葛亮</h2>
+      <p>诸葛亮作为强力法师，红色梦魇提升法术攻击、法术穿透，保证打出强力伤害。绿色怜悯提升技能冷却，保证可以多放技能、多打出被动，对敌人造成高额伤害。蓝色轮回提升法术吸血能力，在对战中保证生存能力以及续航能力。</p>
+      <ion-note item-end>下午01:12</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/152/152.jpg">
+      </ion-avatar>
+      <h2>王昭君</h2>
+      <p>法术攻击的叠加，提高昭君带线能力，前期较有优势，达到四级时就可以带走敌方中单，或者边路支援打野抓人。CD的缩减主要针对后期，可以使昭君技能频繁使用，进行消耗。吸血效果可以很好的提升线上续航能力。</p>
+      <ion-note item-end>早上10:03</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/127/127.jpg">
+      </ion-avatar>
+      <h2>甄姬</h2>
+      <p>这套铭文提供法术强度、法术穿透、冷却减缩，以及法术吸血。法术穿透和法术强度增加甄姬的输出能力，法术吸血让甄姬有一定的续航能力，冷却减缩减少技能CD，让甄姬能更快得打出技能被动冰冻敌方并造成伤害。</p>
+      <ion-note item-end>下午05:47</ion-note>
+    </ion-item>
   </ion-list>
 
-  <ion-list>
-
-    <ion-list-header>Yesterday</ion-list-header>
-
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/img/avatar-ts-hamm.png">
-      </ion-avatar>
-      <h2>Hamm</h2>
-      <p>You heard of Kung Fu? Well get ready for pork chop.</p>
-      <ion-note item-end>11:11 pm</ion-note>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/img/avatar-ts-slinky.png">
-      </ion-avatar>
-      <h2>Slinky Dog</h2>
-      <p>I may not be a smart dog, but I know what roadkill is.</p>
-      <ion-note item-end>8:54 pm</ion-note>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/img/avatar-ts-rex.png">
-      </ion-avatar>
-      <h2>Rex</h2>
-      <p>Were you scared? Tell me honestly.</p>
-      <ion-note item-end>7:22 am</ion-note>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/img/avatar-ts-bullseye.png">
-      </ion-avatar>
-      <h2>Bullseye</h2>
-      <p>Neigh!</p>
-      <ion-note item-end>2:08 am</ion-note>
-    </ion-item>
-
-  </ion-list>
-
-  <ion-list>
-
-    <ion-list-header>Last Week</ion-list-header>
-
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/img/avatar-ts-barbie.png">
-      </ion-avatar>
-      <h2>Barbie</h2>
-      <p>So, who's ready for Ken's dream tour?</p>
-      <ion-note item-end>Sun</ion-note>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/img/avatar-ts-squeeze.png">
-      </ion-avatar>
-      <h2>Squeeze</h2>
-      <p>The claw is our master.</p>
-      <ion-note item-end>Fri</ion-note>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/img/avatar-ts-sarge.png">
-      </ion-avatar>
-      <h2>Sarge</h2>
-      <p>Code Red, repeat: We're at Code Red!</p>
-      <ion-note item-end>Wed</ion-note>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/img/avatar-ts-bopeep.png">
-      </ion-avatar>
-      <h2>Bo Peep</h2>
-      <p>What would you say if I get someone else to watch the sheep for me tonight?</p>
-      <ion-note item-end>Mon</ion-note>
-    </ion-item>
-
-  </ion-list>
 </ion-content>

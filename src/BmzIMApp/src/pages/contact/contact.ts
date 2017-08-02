@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { App,NavController } from 'ionic-angular';
+import { ChatPage } from '../chat/chat';
 
 @Component({
   selector: 'page-contact',
@@ -7,8 +8,11 @@ import { NavController } from 'ionic-angular';
 })
 export class ContactPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public app: App,public navCtrl: NavController) {
 
   }
 
+openModal(characterNum) {
+    this.app.getRootNav().push(ChatPage, characterNum)
+  }
 }
