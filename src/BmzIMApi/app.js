@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('./config/mongoose.js')
 var db = mongoose();
 
+//
+global.online_users = new Map();
 
 
 var app = express();
@@ -27,6 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 var route = require('./route.js');
 route(app);
 
+var socketServer = require('./socketServer.js');
+socketServer(app);
 
 
 // catch 404 and forward to error handler

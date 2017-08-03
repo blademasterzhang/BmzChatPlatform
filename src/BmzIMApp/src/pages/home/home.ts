@@ -13,10 +13,10 @@ import { UserService } from '../../services/user-service';
 export class HomePage {
 
   constructor(public app: App, private userService: UserService) {
-
+console.log("userService.getUsers()");
     userService.getUsers().subscribe(
         data => {
-          console.log('data.results',data.results);
+          console.log('data.results',data);
         },
         err => {
           console.log('err',err);
@@ -27,6 +27,7 @@ export class HomePage {
 
 
   openModal(characterNum) {
+console.log("openModal");
     this.app.getRootNav().push(DetailPage, characterNum)
   }
 }
