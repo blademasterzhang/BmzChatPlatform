@@ -12,6 +12,7 @@ import { UserService } from '../../services/user-service';
 export class LoginPage {
   code:string;
   pwd:string;
+  err_message:string;
 
   constructor(public navCtr: NavController,public storage: Storage,public userService: UserService){ 
 
@@ -20,14 +21,21 @@ export class LoginPage {
   loginIn(){
   		this.userService.login(this.code,this.pwd).subscribe(
         data => {
-          console.log('data.results',data);
+          if(data.result == 1)
+          {
+            this.storage.set('loginIn', true)
+            this.storage.set('loginCode', this.code)
+            this.navCtr.setRoot(TabsPage);
+          }
+          else
+          {
+            this.err_message="用户名或者密码错误！";
+          }
         },
         err => {
-          console.log('err',err);
+            this.err_message=err;
         },
-        () => console.log('Movie Search Complete')
-      );;
-        this.storage.set('loginIn', true)
-        this.navCtr.setRoot(TabsPage);
+        () => console.log('login Complete')
+      );
     }
 }

@@ -12,98 +12,17 @@
 </ion-header>
 
 <ion-content class="cards-bg">
-  <ion-card (click)="openModal({charNum: 0})">
-    <img style="background:url(http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg)"/>
+  <ion-card *ngFor="let item of nearbyUsers" (click)="openModal({userCode: item.userCode})">
+    <img [ngStyle]="{'background-image':'url(' + item.backgroundImg + ')'}"/>
     <ion-card-content>
       <ion-card-title>
-        铠
+        {{item.realName}}
       </ion-card-title>
-      <span>27岁 . 160cm . 10w以下 . 摩羯座</span><span class="float-right">贵阳</span>
+      <span>{{item.age}} . {{item.sexName}}</span><span class="float-right">{{item.address}}</span>
       <p class="description-message">
-        古老的魔道家族，流动着神秘力量的血脉传承，都是因为“罪”而获得的。当年轻人追溯着疯狂血缘的来历了解到这个事实后，变得面目全非。 
-他抛开家乡离去……只留下可怕的传说。当一个家族获得不属于自身的力量，终究是要偿还的。而他背负起了罪恶，去终结罪恶。
+        {{item.personSign}}
       </p>
     </ion-card-content>
   </ion-card>
 
-  <ion-card (click)="openModal({charNum: 1})">
-    <div>
-      <img style="background:url(http://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191-bigskin-1.jpg)"/>
-    </div>
-    <ion-card-content>
-      <ion-card-title>
-        大乔
-      </ion-card-title>
-      <span>27岁 . 160cm . 10w以下 . 摩羯座</span><span class="float-right">贵阳</span>
-      <p class="description-message">
-      古老的魔道家族：江东乔氏，谨守着复杂而令人窒息的传统，以维持源自太古的，血脉中代代相传的魔道。然而最担心的事终究还是发生了：千百年来诞生的第一对双生女婴，似乎应验了家谱中关于乔氏一族终会败亡的预言。
-家族的长辈恐惧着，作出无情的决定：培养姐姐作为家族继承人，妹妹则从家谱中抹去，送往稷下寄养。
-      </p>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card (click)="openModal({charNum: 2})">
-    <div>
-      <img style="background:url(http://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190-bigskin-1.jpg)"/>
-    </div>
-    <ion-card-content>
-      <ion-card-title>
-        诸葛亮
-      </ion-card-title>
-      <span>27岁 . 160cm . 10w以下 . 摩羯座</span><span class="float-right">贵阳</span>
-      <p class="description-message">
-        稷下学院有史以来最伟大的天才，世间公认夫子的继承者。无论魔道机关，智谋兵法，样样都是第一。连后来的铁血都督周瑜，也不得不咬牙接受每次考试屈居次席的事实。背负千年老二的黑历史，对高傲如他而言，名为诸葛亮的青年简直如同噩梦的存在。至于天才本人，则完全无视羡慕嫉妒恨的眼光，投身于传说中天书残篇的研究。
-      </p>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <div>
-      <img style="background:url(http://game.gtimg.cn/images/yxzj/img201606/heroimg/152/152-bigskin-1.jpg)"/>
-    </div>
-    <ion-card-content>
-      <ion-card-title>
-        王昭君
-      </ion-card-title>
-      <span>27岁 . 160cm . 10w以下 . 摩羯座</span><span class="float-right">贵阳</span>
-      <p class="description-message">
-        北方延绵数千里的草原上，生活着北夷部落。他们逐水草而居，与牛羊和狼群为伍，男女都是强悍的战士。然而极北严寒侵袭着草原，让他们生活的环境越来越严苛。为了得到粮食，他们自塞外南下，一次次向长城发起冲击。
-彼时中原正陷入混乱，焦头烂额的诸侯们无暇应付这群野人，又不能放任他们掠夺，只好联合起来与之谈判。最终，以粮食和布匹为代价暂时达成停战协议。随着这些和平礼物一同抵达的，还有和亲的公主。
-      </p>
-    </ion-card-content>
-  </ion-card>
-
-<ion-card>
-    <div>
-      <img style="background:url(http://game.gtimg.cn/images/yxzj/img201606/heroimg/127/127-bigskin-1.jpg)"/>
-    </div>
-    <ion-card-content>
-      <ion-card-title>
-        甄姬
-      </ion-card-title>
-      <span>27岁 . 160cm . 10w以下 . 摩羯座</span><span class="float-right">贵阳</span>
-      <p class="description-message">
-        甄姬本是以温柔仁慈闻名大陆的绝代美女，出身极为高贵，被认为流着古代圣者的血脉，从而受到世人的崇敬。她从小被教育要肩负责任，克制自己的欲望，无私的感化世人，净化世间的污秽。 
-可十八年的坚守，所有小心谨慎，都在遇到那个人时被打破。他青春洋溢的面孔，大胆无畏的行动力，痴情持续的追求，还有那些令人心跳的甜言蜜语，都令她头晕目眩。 
-      </p>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <div>
-      <img style="background:url(http://game.gtimg.cn/images/yxzj/img201606/heroimg/180/180-bigskin-1.jpg)"/>
-    </div>
-    <ion-card-content>
-      <ion-card-title>
-        哪吒
-      </ion-card-title>
-      <span>27岁 . 160cm . 10w以下 . 摩羯座</span><span class="float-right">贵阳</span>
-      <p class="description-message">
-        “我，哪吒，是人，又非人。”
-“炼金术炼成的身体，没有触觉，没有痛感，永远都无法长大。可胸腔里跳动着，乃真真正正，生而为人的心脏。”
-“东海边曾矗立着名叫陈塘关的城市，父亲乃此地长官。从小，我就清楚自己的强大，力量，速度与武技的领悟都凌驾常人。连兄长们也望尘莫及。”
-“可我没有朋友。无法抑制暴走的冲动，让同龄人都对我敬而远之。
-      </p>
-    </ion-card-content>
-  </ion-card>
 </ion-content>

@@ -10,20 +10,25 @@ export class UserService {
 		
 	}
  
-    getUsers() {
-        var url = '/api/user/nearby';
+    getUsers(code) {
+        var url = '/api/user/nearby/'+code;
         var response = this.http.get(url).map(res => res.json());
 		return response;
+    }
+
+    getUserDetail(code){
+        var url = '/api/user/detail/'+code;
+        var response = this.http.get(url).map(res => res.json());
+        return response;
     }
 
     login(code,pwd){
         var url = '/api/user/login';
         var headers =  new Headers();
         headers.append("Content-Type","application/json");
-        headers.append("code",code);
-        headers.append("pwd",pwd);
+        let params = JSON.stringify({"code":code,"pwd":pwd});
         let options = new RequestOptions({headers:headers});
-        var response = this.http.get(url,options).map(res => res.json());
+        var response = this.http.post(url,params,options).map(res => res.json());
         return response;
     }
 }

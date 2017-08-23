@@ -18,6 +18,8 @@ import { DetailPage } from '../pages/detail/detail';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
+import { UserService } from '../services/user-service';
+import { ToolHelper } from '../tools/tool-helper';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { IonicStorageModule } from '@ionic/storage';
   providers: [
     StatusBar,
     SplashScreen,
+    UserService,
+    ToolHelper,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

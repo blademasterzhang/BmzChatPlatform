@@ -6,9 +6,9 @@ var router = express.Router();
 var usersData=[{
 	userCode: "kai",
 	password: "123456",
-	Avatar: "http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193.jpg",
+	avatar: "http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193.jpg",
 	backgroundImg: "http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg",
-	ImgList: ["http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg","http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg"],
+	imgList: ["http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg","http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg"],
 	realName: "铠",
 	sex: 1,//0女，1男
 	birthday: new Date('1987-01-01'),
@@ -21,9 +21,9 @@ var usersData=[{
 },{
 	userCode: "daqiao",
 	password: "123456",
-	Avatar: "http://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191.jpg",
+	avatar: "http://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191.jpg",
 	backgroundImg: "http://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191-bigskin-1.jpg",
-	ImgList: ["http://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191-bigskin-1.jpg","http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg"],
+	imgList: ["http://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191-bigskin-1.jpg","http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg"],
 	realName: "大乔",
 	sex: 0,//0女，1男
 	birthday: new Date('1987-01-01'),
@@ -36,9 +36,9 @@ var usersData=[{
 },{
 	userCode: "zhugeliang",
 	password: "123456",
-	Avatar: "http://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190.jpg",
+	avatar: "http://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190.jpg",
 	backgroundImg: "http://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190-bigskin-1.jpg",
-	ImgList: ["http://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191-bigskin-1.jpg","http://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190.jpg"],
+	imgList: ["http://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191-bigskin-1.jpg","http://game.gtimg.cn/images/yxzj/img201606/heroimg/190/190.jpg"],
 	realName: "诸葛亮",
 	sex: 1,//0女，1男
 	birthday: new Date('1987-01-01'),
@@ -77,11 +77,9 @@ router.post('/register', function(req,res,next){
 	res.send('register')
 })
 
-router.get('/login', function(req,res,next){
+router.post('/login', function(req,res,next){
 	for(var item in usersData){
-		console.log("paras",req.params)
-		console.log("body",req.body)
-		if(usersData[item].userCode == req.params.code&& usersData[item].password == req.params.pwd)
+		if(usersData[item].userCode == req.body.code&& usersData[item].password == req.body.pwd)
 		{
 			res.json({"result":1});
 			return;
@@ -90,8 +88,17 @@ router.get('/login', function(req,res,next){
 	res.json({"result":0});
 })
 
-router.get('/nearby', function(req,res,next){
-	res.json(usersData);
+router.get('/nearby/:code', function(req,res,next){
+	//res.json(usersData);
+	let users = []
+	for(var item in usersData){
+		if(usersData[item].userCode != req.params.code)
+		{
+			users.push(usersData[item]);
+		}
+	}
+	console.log(users);
+	res.json(users);
 	//res.send('nearby-users')
 })
 

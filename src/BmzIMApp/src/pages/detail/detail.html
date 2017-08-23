@@ -7,40 +7,32 @@
 </ion-header>
 
 <ion-content>
-	<img src="http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg"/>
-    <div padding class="background-white margin-bottom-10">
+  <img src="{{UserDetail.backgroundImg}}"/>
+    <div padding class="background-white">
         <span class="line-height-28 font-large-bold">
-            铠  27岁
+            {{UserDetail.realName}}  {{UserDetail.age}}
         </span>
         <br/>
         <span class="line-height-28 color-gray">
-        贵阳|期望一年内结婚
-        </span>
-        <br/>
-        <span class="line-height-28 color-gray">
-        UID:1560988
+          {{UserDetail.address}}
         </span>
     </div>
 
 <ion-list border>
 
       <ion-list-header>
-        照片 23
+        照片 {{UserDetail.imgList.length}}
       </ion-list-header>
         <div class="border-1-solid-gray"></div>
     <ion-grid class="background-white">
-              <ion-row>
-                <ion-col col-4><img class="square-img" style="background:url(http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg)"/></ion-col>
-                <ion-col col-4><img class="square-img" style="background:url(http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg)"/></ion-col>
-                <ion-col col-4><img class="square-img" style="background:url(http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg)"/></ion-col>
-                <ion-col col-4><img class="square-img" style="background:url(http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg)"/></ion-col>
-                <ion-col col-4><img class="square-img" style="background:url(http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg)"/></ion-col>
-                <ion-col col-4>
+              <ion-row >
+                <ion-col col-4 *ngFor="let item of UserDetail.imgList"><img class="square-img" [ngStyle]="{'background-image':'url(' + item + ')'}"/></ion-col>
+                 <!-- <ion-col col-4>
                   <div class="cover-layer">
                     +17<span class="color-gray">More</span>
                   </div>
                   <img class="square-img" style="background:url(http://game.gtimg.cn/images/yxzj/img201606/heroimg/193/193-bigskin-1.jpg)"/>
-                </ion-col>
+                </ion-col> -->
               </ion-row>
     </ion-grid>
   </ion-list>
@@ -51,8 +43,7 @@
     </ion-list-header>
         <div class="border-1-solid-gray"></div>
 
-    <p class="p-desc">
-      铠的一技能回复能力与物理加成有关，传承增加物理攻击力。鹰眼所提供的物理穿透提升后期伤害。隐匿不仅可以提高铠的物理攻击力，还可以增加铠的移速更好的追击敌人。
+    <p class="p-desc">{{UserDetail.personSign}}
     </p>
 
   </ion-list>
@@ -69,28 +60,28 @@
         <ion-note>
           昵称
         </ion-note>
-        <span item-end>铠</span>
+        <span item-end>{{UserDetail.realName}}</span>
       </ion-item>
 
       <ion-item>
         <ion-note>
           性别
         </ion-note>
-        <span item-end>男</span>
+        <span item-end>{{UserDetail.sexName}}</span>
       </ion-item>
 
       <ion-item>
           <ion-note>
           年龄
         </ion-note>
-        <span item-end>27岁</span>
+        <span item-end>{{UserDetail.age}}</span>
       </ion-item>
 
       <ion-item>
           <ion-note>
           地区
         </ion-note>
-        <span item-end>贵州 贵阳</span>
+        <span item-end>{{UserDetail.address}}</span>
       </ion-item>
   </ion-list>
  
