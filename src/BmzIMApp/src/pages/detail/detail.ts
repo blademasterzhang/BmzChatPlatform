@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { App,NavController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
-import { ContactPage } from '../contact/contact';
 import { ChatPage } from '../chat/chat';
 import { UserService } from '../../services/user-service';
 import { ToolHelper } from '../../tools/tool-helper';
@@ -13,15 +11,12 @@ import { ToolHelper } from '../../tools/tool-helper';
 })
 
 export class DetailPage {
-
-
-  tab1Root = HomePage;
-  tab2Root = ContactPage;
   UserDetail:{};
-  constructor(public app: App,public navCtrl: NavController,public params: NavParams,public userService: UserService,public toolHelper: ToolHelper) {
+  chatUserCode:any;
+  constructor(public app: App,public params: NavParams,public userService: UserService,public toolHelper: ToolHelper) {
     this.UserDetail={'realName':'','backgroundImg':'',imgList:[],address:'',birthday:'',sex:1,sexName:'',age:18,personSign:''};
-  	let code = this.params.get('userCode');
-  	userService.getUserDetail(code).subscribe(
+  	this.chatUserCode = this.params.get('userCode');
+  	userService.getUserDetail(this.chatUserCode).subscribe(
           data => {
             data.sexName= toolHelper.getSexName(data.sex);
             data.age= toolHelper.getAge(data.birthday);
@@ -30,7 +25,7 @@ export class DetailPage {
           });
   }
 
-  openModal(characterNum) {
-    this.app.getRootNav().push(ChatPage, characterNum)
+  openModal() {
+    this.app.getRootNav().push(ChatPage, {"chatUserCode":this.chatUserCode})
   }
 }

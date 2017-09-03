@@ -11,3 +11,14 @@
   background: #488aff;
   color:#ffffff;
 }
+
+.scroll-content {
+  overflow-y: hidden;
+}
+
+textarea.text-input {
+    overflow: hidden;
+    min-height: 30px;
+    max-height: 60px;
+    height: auto;
+}

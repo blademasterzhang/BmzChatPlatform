@@ -9,7 +9,6 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { ChatPage } from '../pages/chat/chat';
-import { MessagePage } from '../pages/message/message';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { DynamicPage } from '../pages/dynamic/dynamic';
@@ -19,7 +18,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
 import { UserService } from '../services/user-service';
+import { SocketService } from '../services/socket-service';
 import { ToolHelper } from '../tools/tool-helper';
+import {ElasticTextarea} from "../components/elasticTextarea";
 
 @NgModule({
   declarations: [
@@ -29,11 +30,11 @@ import { ToolHelper } from '../tools/tool-helper';
     ContactPage,
     HomePage,
     ChatPage,
-    MessagePage,
     TabsPage,
     LoginPage,
     DynamicPage,
-    DetailPage
+    DetailPage,
+    ElasticTextarea
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,6 @@ import { ToolHelper } from '../tools/tool-helper';
     ContactPage,
     HomePage,
     ChatPage,
-    MessagePage,
     TabsPage,
     LoginPage,
     DynamicPage,
@@ -59,6 +59,7 @@ import { ToolHelper } from '../tools/tool-helper';
     StatusBar,
     SplashScreen,
     UserService,
+    SocketService,
     ToolHelper,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

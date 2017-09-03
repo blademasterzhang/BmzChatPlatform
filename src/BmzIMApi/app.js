@@ -29,9 +29,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 var route = require('./route.js');
 route(app);
 
-var socketServer = require('./socketServer.js');
-socketServer(app);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

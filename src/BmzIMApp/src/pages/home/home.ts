@@ -18,7 +18,7 @@ export class HomePage {
     this.nearbyUsers = [];
     console.log("userService.getUsers()");
     this.storage.get('loginCode').then((code) => {
-      userService.getUsers(code).subscribe(
+      userService.getUsers(code ).subscribe(
         data => {
           this.nearbyUsers = data;
           for(var i in this.nearbyUsers){
