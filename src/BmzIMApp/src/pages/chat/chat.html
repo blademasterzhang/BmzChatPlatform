@@ -11,17 +11,17 @@
     <ion-grid>
       <ion-row *ngFor="let item of chats">
           <ion-col col-2>
-            <ion-thumbnail item-start *ngIf="item.userCode!= userInfos[0].userCode">
-              <img src="{{userInfos[1].avator}}">
+            <ion-thumbnail item-start *ngIf="item.userCode== userInfos[1].userCode">
+              <img src="{{userInfos[1].avatar}}">
             </ion-thumbnail>
           </ion-col>
           <ion-col col-8>
-            <span class="chat-message" *ngIf="item.userCode!= userInfos[0].userCode">{{item.message}}</span>
+            <span class="chat-message" *ngIf="item.userCode== userInfos[1].userCode">{{item.message}}</span>
             <span class="chat-message right-chat-message" *ngIf="item.userCode== userInfos[0].userCode">{{item.message}}</span>
           </ion-col>
           <ion-col col-2>
             <ion-thumbnail item-start *ngIf="item.userCode== userInfos[0].userCode">
-              <img src="{{userInfos[0].avator}}">
+              <img src="{{userInfos[0].avatar}}">
             </ion-thumbnail>
           </ion-col>
       </ion-row>

@@ -1,11 +1,11 @@
 import { Component} from '@angular/core';
 import { App   } from 'ionic-angular';
 import 'rxjs/add/operator/map';
-import { ChatPage } from '../chat/chat';
 import { DetailPage } from '../detail/detail';
 import { UserService } from '../../services/user-service';
 import { ToolHelper } from '../../tools/tool-helper';
 import { Storage } from '@ionic/storage';
+import { SocketService } from '../../services/socket-service';
 
 @Component({
   selector: 'page-home',
@@ -14,11 +14,16 @@ import { Storage } from '@ionic/storage';
 export class HomePage {
   nearbyUsers;
 
-  constructor(public app: App, private userService: UserService,public toolHelper: ToolHelper, public storage: Storage) {
+  constructor(public app: App, private userService: UserService,public toolHelper: ToolHelper, public storage: Storage,private socketService: SocketService) {
+    socketService.init();
     this.nearbyUsers = [];
     console.log("userService.getUsers()");
     this.storage.get('loginCode').then((code) => {
-      userService.getUsers(code ).subscribe(
+      socketService.login(code);
+      userService.getUserDetail(code).subscribe(data=>{
+        userService.init(data);
+      });
+      userService.getUsers(code).subscribe(
         data => {
           this.nearbyUsers = data;
           for(var i in this.nearbyUsers){

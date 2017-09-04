@@ -44,7 +44,7 @@ module.exports = function(server){
             var tosocket = global.online_users.get(msg.to)
             console.log('tosocket');
             if(tosocket)
-                tosocket.emit('newMsg', msg, color);
+                tosocket.emit('replyMsg', msg, color);
         });
 
         //new image get

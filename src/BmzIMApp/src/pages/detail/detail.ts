@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { App,NavController } from 'ionic-angular';
+import { App } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
 import { ChatPage } from '../chat/chat';
 import { UserService } from '../../services/user-service';
@@ -26,6 +26,6 @@ export class DetailPage {
   }
 
   openModal() {
-    this.app.getRootNav().push(ChatPage, {"chatUserCode":this.chatUserCode})
+    this.app.getRootNav().push(ChatPage, {"chatUserDetail":this.UserDetail})
   }
 }

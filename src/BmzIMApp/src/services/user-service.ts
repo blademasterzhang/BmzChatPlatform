@@ -1,14 +1,24 @@
 import {Http,Headers,RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
  
-export class UserService {  
+export class UserService {
     static get parameters() {
         return [[Http]];
     }
- 
+
+    private static myUserDetail:{'userCode':'','Avatar':''};
+
 	constructor(private http:Http) {
-		
+
 	}
+
+    init(userDetail){
+        UserService.myUserDetail = userDetail;
+    }
+
+    public static getMyUserDetail(){
+        return UserService.myUserDetail;
+    }
  
     getUsers(code) {
         var url = '/api/user/nearby/'+code;

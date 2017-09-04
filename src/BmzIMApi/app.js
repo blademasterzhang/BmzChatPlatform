@@ -5,8 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var mongoose = require('./config/mongoose.js')
-var db = mongoose();
+//var mongoose = require('./config/mongoose.js')
+//var db = mongoose();
 
 //
 global.online_users = new Map();

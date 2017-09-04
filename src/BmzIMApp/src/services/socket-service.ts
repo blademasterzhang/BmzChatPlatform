@@ -1,59 +1,68 @@
 import {Injectable} from "@angular/core";
-import {Observable} from "rxjs/Observable";
 import io from "socket.io-client";
 import {SOCKET_HOST} from "./constants";
 
 @Injectable()
 export class SocketService {
-  private socket: any;
+  private static socket: any;
+  private showFun:any;
 
   constructor() {
     console.log('***Socket constructor init***');
-    this.init();
+    //this.init();
+  }
+
+  setShowFun(fun){
+    this.showFun=fun;
   }
 
   init() {
-    this.socket = io(SOCKET_HOST);
+    SocketService.socket = io(SOCKET_HOST);
 
-    this.socket.on("connect", () => {
+    SocketService.socket.on("connect", () => {
       console.debug('***Socket Connected***');
     });
-    this.socket.on("newMsg", (msg) => {
-      console.debug('***Socket newMsg***',msg);
+    SocketService.socket.on("replyMsg", (msg) => {
+      if(this.showFun != undefined){
+        this.showFun(msg);
+      }
+      console.debug('***Socket replyMsg***',msg);
     });
 
-    this.socket.on("reconnecting", attempt => {
+    SocketService.socket.on("reconnecting", attempt => {
       console.debug('***Socket Reconnecting***', attempt);
     });
 
-    this.socket.on("reconnect_failed", () => {
+    SocketService.socket.on("reconnect_failed", () => {
       console.debug('***Socket Reconnect failed***');
     });
 
-    this.socket.on('disconnect', () => {
+    SocketService.socket.on('disconnect', () => {
       console.debug('***Socket Disconnected***');
     });
 
     
   }
 
+
+
   login(userCode)
   {
     console.log("login",userCode);
-    this.socket.emit("login",userCode);
+    SocketService.socket.emit("login",userCode);
   }
 
   sendMessage(message)
   {
     console.log("postMsg",message)
-    this.socket.emit("postMsg",message)
+    SocketService.socket.emit("postMsg",message)
   }
 
   disconnect() {
-    this.socket.disconnect();
+    SocketService.socket.disconnect();
   }
 
   connect() {
-    this.socket.connect();
+    SocketService.socket.connect();
   }
 }
