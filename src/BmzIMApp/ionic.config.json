@@ -2,8 +2,11 @@
   "name": "BmzIMApp2",
   "app_id": "",
   "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
   "proxies": [{  
-    "path": "/",  
-    "proxyUrl": "http://localhost:3000/"  
+    "path": "/api",  
+    "proxyUrl": "http://192.168.0.104:3000/api"  
   }]
 }

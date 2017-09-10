@@ -18,6 +18,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
 import { UserService } from '../services/user-service';
+import { MovieService } from '../services/movie-service';
 import { SocketService } from '../services/socket-service';
 import { ToolHelper } from '../tools/tool-helper';
 import {ElasticTextarea} from "../components/elasticTextarea";
@@ -59,6 +60,7 @@ import {ElasticTextarea} from "../components/elasticTextarea";
     StatusBar,
     SplashScreen,
     UserService,
+    MovieService,
     SocketService,
     ToolHelper,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

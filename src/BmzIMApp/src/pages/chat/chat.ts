@@ -25,7 +25,8 @@ export class ChatPage {
     this.socketService.setShowFun(function(msg){
       let chat = {"userCode":msg.from,"message":msg.message.content};
       console.log('chat',chat)
-      that.chats.push(chat);
+      if(that.chatUserDetail.userCode == msg.from) 
+        that.chats.push(chat);
     });
   }
 

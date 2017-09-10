@@ -3,6 +3,9 @@ import { NavController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs'; 
 import { Storage } from '@ionic/storage';
 import { UserService } from '../../services/user-service';
+import { MovieService } from '../../services/movie-service';
+import {Http} from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'page-login',
@@ -14,9 +17,9 @@ export class LoginPage {
   pwd:string;
   err_message:string;
 
-  constructor(public navCtr: NavController,public storage: Storage,public userService: UserService){ 
-
+  constructor(public navCtr: NavController,public storage: Storage,public userService: UserService,public movieService: MovieService,http: Http){ 
     }
+  
     
   loginIn(){
   		this.userService.login(this.code,this.pwd).subscribe(

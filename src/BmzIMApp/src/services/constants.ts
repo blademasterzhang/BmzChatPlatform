@@ -1,1 +1,1 @@
-export const SOCKET_HOST = "http://localhost:3000";
+export const SOCKET_HOST = "http://192.168.0.104:3000";//http://192.168.0.104:3000
