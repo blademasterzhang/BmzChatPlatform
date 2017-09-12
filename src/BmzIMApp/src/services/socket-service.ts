@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import io from "socket.io-client";
-import {SOCKET_HOST} from "./constants";
+import {AppGlobal} from "./app-global";
 
 @Injectable()
 export class SocketService {
@@ -17,7 +17,7 @@ export class SocketService {
   }
 
   init() {
-    SocketService.socket = io(SOCKET_HOST);
+    SocketService.socket = io(AppGlobal.getInstance().serverUrl);
 
     SocketService.socket.on("connect", () => {
       console.debug('***Socket Connected***');

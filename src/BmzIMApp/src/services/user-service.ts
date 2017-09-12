@@ -1,6 +1,6 @@
 import {Http,Headers,RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {SOCKET_HOST} from "./constants";
+import {AppGlobal} from "./app-global";
 
 export class UserService {
     static get parameters() {
@@ -9,10 +9,8 @@ export class UserService {
 
     private static myUserDetail:{'userCode':'','Avatar':''};
 
-    const_url:string;
 
 	constructor(private http:Http) {
-        this.const_url = "";//SOCKET_HOST
 	}
 
     init(userDetail){
@@ -24,19 +22,19 @@ export class UserService {
     }
  
     getUsers(code) {
-        var url = this.const_url+'/api/user/nearby/'+code;
+        var url = AppGlobal.getInstance().debugServerUrl+'/api/user/nearby/'+code;
         var response = this.http.get(url).map(res => res.json());
 		return response;
     }
 
     getUserDetail(code){
-        var url = this.const_url+'/api/user/detail/'+code;
+        var url = AppGlobal.getInstance().debugServerUrl+'/api/user/detail/'+code;
         var response = this.http.get(url).map(res => res.json());
         return response;
     }
 
     login(code,pwd){
-        var url = this.const_url+'/api/user/login';
+        var url = AppGlobal.getInstance().debugServerUrl+'/api/user/login';
         var headers =  new Headers();
         headers.append("Content-Type","application/json");
         let params = JSON.stringify({"code":code,"pwd":pwd});
