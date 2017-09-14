@@ -13,7 +13,8 @@ export class ElasticTextarea implements AfterViewInit {
   public placeholder: string;
   public maxHeight: number;
   public maxExpand: number;
-
+  public onChangeEvent:any;
+  onFocusEvent:any;
   constructor() {
     this.content = "";
     this.lineHeight = 20;
@@ -35,6 +36,27 @@ export class ElasticTextarea implements AfterViewInit {
     } else {
       this.txtArea.style.height = this.maxHeight + "px";
     }
+    if(this.onChangeEvent!=null)
+    {
+      this.onChangeEvent();
+    }
+  }
+
+  public setClickEvent(focusEvent)
+  {
+    this.onFocusEvent = focusEvent;
+    let that = this;
+    let txtform = document.getElementById("ionTxtArea");
+
+    this.ionTxtArea.setFocus=function(){
+      console.log("setFocus onFocusEvent");
+      if(that.onFocusEvent!=null)
+      {
+        that.onFocusEvent();
+      }
+    };
+
+    //this.ionTxtArea.focus()
   }
 
   public clearInput() {

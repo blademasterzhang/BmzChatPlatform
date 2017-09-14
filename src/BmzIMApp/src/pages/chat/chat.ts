@@ -15,6 +15,8 @@ export class ChatPage {
   userInfos=[];
   chats=[];
   chatUserDetail:any;
+  wordOrEmpty:string = "empty";//empty or word
+  isExtend:any =false;
 
   constructor( public params: NavParams,private socketService: SocketService, public storage: Storage) {
     let that = this;
@@ -29,6 +31,27 @@ export class ChatPage {
         that.chats.push(chat);
     });
   }
+
+  ionViewDidEnter(){ 
+    let that = this;
+    this.txtChat.onChangeEvent=function(){
+      if(that.txtChat.content!='')
+      {
+        if(that.wordOrEmpty!="word")
+        {
+          that.wordOrEmpty="word";
+          that.shrink();
+        }
+      }
+      else
+      {
+        that.wordOrEmpty="empty";
+      }
+    }
+    this.txtChat.setClickEvent(function(){
+      that.shrink();
+    });
+  }  
 
   send() {
     this.txtChat.setFocus();
@@ -45,6 +68,24 @@ export class ChatPage {
         itemList.scrollTop = itemList.scrollHeight;
       }, 10);
       this.txtChat.clearInput();
+      this.txtChat.onChangeEvent()
     }
+  }
+
+  extend(){
+        if(!this.isExtend){
+          var extenform = document.getElementById("extend-form");
+          extenform.className="";
+          this.isExtend=true;
+        }else{
+          this.shrink()
+          this.isExtend=false;
+        }
+        
+  }
+
+  shrink(){
+        var extenform = document.getElementById("extend-form");
+        extenform.className="hidden";
   }
 }
